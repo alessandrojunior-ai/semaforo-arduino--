@@ -21,3 +21,8 @@ A proposta será conduzida como uma investigação geográfica em três etapas:
 
 O que os estudantes aprenderão em Geografia
 Os estudantes compreenderão na prática os conceitos de mobilidade urbana sustentável, caminhabilidade, função social da rua e planejamento territorial, percebendo como decisões técnicas de trânsito refletem disputas pelo espaço urbano. Na dimensão da Computação, exercitarão a decomposição de problemas, o raciocínio algorítmico, a manipulação de variáveis de tempo e estruturas de repetição (`for` e `loop`) aplicadas a uma demanda real da cidadania local.
+Licença
+
+Distribuído sob a licença MIT. Veja o arquivo [LICENSE](LICENSE).
+
+Autor: Alessandro Junior Pereira
