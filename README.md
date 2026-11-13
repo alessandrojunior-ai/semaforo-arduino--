@@ -4,6 +4,7 @@ SEMÁFORO INTELIGENTE COM ARDUINO
 Semáforo Inteligente com Arduino
 Projeto desenvolvido para simular o controle de tráfego de veículos e a travessia segura de pedestres utilizando Arduino Uno, LEDs e resistores de proteção (220 Ω).
 Circuito no Tinkercad
+
 Link da simulação: Acessar projeto noTinkercad:
 (https://www.tinkercad.com/things/6BIPmhrAOMO-projeto-semaforo/editel?returnTo=%2Fdashboard%2Fdesigns%2Fall&sharecode=oaxF5sv5uCJQ82ddTCIQeik24ZXcOnwM4pTAB74rhU0)
  Uso na escola
