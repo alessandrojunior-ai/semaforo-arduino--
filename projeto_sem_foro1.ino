@@ -1,50 +1,51 @@
-// Definição dos pinos utilizando constantes
-const int LED_VERMELHO_CARRO = 13;
-const int LED_AMARELO_CARRO  = 12;
-const int LED_VERDE_CARRO    = 11;
+// Semáforo — versão 1
+ // Semáforo para carros e pedestres
 
-const int LED_VERMELHO_PEDESTRE = 9;
-const int LED_VERDE_PEDESTRE    = 8;
-
-// Tempos em milissegundos
-const int TEMPO_VERDE_CARRO   = 5000;
-const int TEMPO_AMARELO_CARRO = 2000;
-const int TEMPO_TRAVESSIA     = 5000;
+const int VERMELHO = 12;
+const int AMARELO = 11;
+const int VERDE = 10;
+const int PED_VERMELHO = 8;
+const int PED_VERDE = 9;
 
 void setup() {
-  pinMode(LED_VERMELHO_CARRO, OUTPUT);
-  pinMode(LED_AMARELO_CARRO, OUTPUT);
-  pinMode(LED_VERDE_CARRO, OUTPUT);
-  pinMode(LED_VERMELHO_PEDESTRE, OUTPUT);
-  pinMode(LED_VERDE_PEDESTRE, OUTPUT);
+  pinMode(VERMELHO, OUTPUT);
+  pinMode(AMARELO, OUTPUT);
+  pinMode(VERDE, OUTPUT);
+  pinMode(PED_VERMELHO, OUTPUT);
+  pinMode(PED_VERDE, OUTPUT);
+
+  // Estado inicial
+  digitalWrite(PED_VERMELHO, HIGH);
+  digitalWrite(PED_VERDE, LOW);
 }
 
 void loop() {
-  // Etapa 1: Carros passam, pedestres aguardam
-  digitalWrite(LED_VERDE_CARRO, HIGH);
-  digitalWrite(LED_AMARELO_CARRO, LOW);
-  digitalWrite(LED_VERMELHO_CARRO, LOW);
-  digitalWrite(LED_VERMELHO_PEDESTRE, HIGH);
-  digitalWrite(LED_VERDE_PEDESTRE, LOW);
-  delay(TEMPO_VERDE_CARRO);
 
-  // Etapa 2: Atenção para os carros
-  digitalWrite(LED_VERDE_CARRO, LOW);
-  digitalWrite(LED_AMARELO_CARRO, HIGH);
-  delay(TEMPO_AMARELO_CARRO);
+  // Carros no verde
+  digitalWrite(VERDE, HIGH);
+  digitalWrite(PED_VERMELHO, HIGH);
+  delay(4000);
 
-  // Etapa 3: Carros param, pedestres atravessam
-  digitalWrite(LED_AMARELO_CARRO, LOW);
-  digitalWrite(LED_VERMELHO_CARRO, HIGH);
-  digitalWrite(LED_VERMELHO_PEDESTRE, LOW);
-  digitalWrite(LED_VERDE_PEDESTRE, HIGH);
-  delay(TEMPO_TRAVESSIA);
+  digitalWrite(VERDE, LOW);
 
-  // Etapa 4: Sinal verde do pedestre pisca alertando fim da travessia
-  for (int i = 0; i < 3; i++) {
-    digitalWrite(LED_VERDE_PEDESTRE, LOW);
-    delay(400);
-    digitalWrite(LED_VERDE_PEDESTRE, HIGH);
-    delay(400);
-}
+  // Carros no amarelo
+  digitalWrite(AMARELO, HIGH);
+  delay(2000);
+  digitalWrite(AMARELO, LOW);
+
+  // Carros no vermelho
+  digitalWrite(VERMELHO, HIGH);
+
+  // Pedestres podem atravessar
+  digitalWrite(PED_VERMELHO, LOW);
+  digitalWrite(PED_VERDE, HIGH);
+  delay(4000);
+
+  // Pedestres devem parar
+  digitalWrite(PED_VERDE, LOW);
+  digitalWrite(PED_VERMELHO, HIGH);
+  delay(1000);
+
+  // Libera os carros
+  digitalWrite(VERMELHO, LOW);
 }
